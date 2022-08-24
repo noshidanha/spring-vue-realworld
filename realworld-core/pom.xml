@@ -10,6 +10,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>realworld-core</artifactId>
+  <artifactId>realworld-core</artifactId>
+  <packaging>jar</packaging>
 
 </project>
