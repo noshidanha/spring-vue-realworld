@@ -22,12 +22,15 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <java.version>17</java.version>
-    
+    <maven.clean.plugin.version>3.2.0</maven.clean.plugin.version>
+    <maven.frontend.version>1.12.1</maven.frontend.version>
+    <node.version>v16.14.2</node.version>
   </properties>
 
   <modules>
     <module>realworld-commons</module>
     <module>realworld-core</module>
+    <module>realworld-util</module>
     <module>realworld-frontend</module>
     <module>realworld-web</module>
   </modules>

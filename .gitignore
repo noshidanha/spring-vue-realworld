@@ -4,7 +4,6 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-
 ### Mac Files ###
 .DS_Store
 
@@ -35,3 +34,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Build Output ###
+public/
