@@ -14,6 +14,3 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.aomentec.realworld.pojo
-
-server:
-  port: 8080
