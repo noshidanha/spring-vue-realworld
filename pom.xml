@@ -25,6 +25,7 @@
     <maven.clean.plugin.version>3.2.0</maven.clean.plugin.version>
     <maven.frontend.version>1.12.1</maven.frontend.version>
     <node.version>v16.14.2</node.version>
+    <mybatis.plus.boot.starter.version>3.5.2</mybatis.plus.boot.starter.version>
   </properties>
 
   <modules>
@@ -51,7 +52,7 @@
       <!-- profile对资源的操作 -->
       <resources>
           <resource>
-            <directory>src/main/resources/config</directory>
+            <directory>src/main/resources</directory>
               <!-- 是否替换@xx@表示的maven properties属性值 -->
             <filtering>true</filtering>
           </resource>
