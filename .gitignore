@@ -37,3 +37,6 @@ build/
 
 ### Build Output ###
 public/
+
+### Project specific ###
+opt/
