@@ -31,7 +31,6 @@
 
   <modules>
     <module>realworld-gen</module>
-    <module>realworld-commons</module>
     <module>realworld-core</module>
     <module>realworld-util</module>
     <module>realworld-frontend</module>
