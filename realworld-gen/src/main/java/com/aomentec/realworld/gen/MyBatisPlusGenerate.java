@@ -9,10 +9,12 @@ import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import com.baomidou.mybatisplus.generator.config.querys.MySqlQuery;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
+import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.baomidou.mybatisplus.generator.keywords.MySqlKeyWordsHandler;
 
 /**
@@ -43,7 +45,7 @@ public class MyBatisPlusGenerate {
       .build();
 
     PackageConfig pc = new PackageConfig
-      .Builder("com.aomentec", "realworld")
+      .Builder("com.aomentec.realworld", "core")
       .entity("entity")
       .service("service")
       .serviceImpl("service.impl")
@@ -53,7 +55,12 @@ public class MyBatisPlusGenerate {
 
     StrategyConfig sc = new StrategyConfig
       .Builder()
-      .enableSchema()
+      .entityBuilder()
+      .enableLombok()
+      .enableTableFieldAnnotation()
+      .idType(IdType.AUTO)
+      .controllerBuilder()
+      .enableRestStyle()
       .mapperBuilder()
       .enableBaseResultMap()
       .enableBaseColumnList()

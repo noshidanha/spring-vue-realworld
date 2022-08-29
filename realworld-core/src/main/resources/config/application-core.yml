@@ -13,4 +13,4 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
-  type-aliases-package: com.aomentec.realworld.pojo
+  type-aliases-package: com.aomentec.realworld.core.entity
