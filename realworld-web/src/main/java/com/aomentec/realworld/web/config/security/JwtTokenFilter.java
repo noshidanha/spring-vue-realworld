@@ -41,7 +41,8 @@ public class JwtTokenFilter extends OncePerRequestFilter {
       }
     } catch (Exception ex) {
       SecurityContextHolder.clearContext();
-      response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "No JWT Token in Authorization Header");
+      // response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "No JWT Token in Authorization Header");
+      // return;
     }
 
     filterChain.doFilter(request, response);
