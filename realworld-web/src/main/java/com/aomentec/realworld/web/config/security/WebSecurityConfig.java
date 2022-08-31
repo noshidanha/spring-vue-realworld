@@ -1,9 +1,10 @@
-package com.aomentec.realworld.web.config;
+package com.aomentec.realworld.web.config.security;
 /**
  * @author : noelsaldanha
  * @created : 2022-08-25
 **/
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,6 +16,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+  @Autowired
+  private JwtTokenProvider jwtTokenProvider;
+
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http
@@ -24,6 +28,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     .and()
       .authorizeRequests()
       .anyRequest().permitAll();
+
+    http.apply(new JwtTokenFilterConfigurer(jwtTokenProvider));
   }
 
 }

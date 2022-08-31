@@ -1,7 +1,6 @@
 package com.aomentec.realworld.core.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import lombok.Getter;
@@ -22,10 +21,10 @@ public class ArticleFavorite implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "article_id", type = IdType.AUTO)
+    @TableField("article_id")
     private String articleId;
 
-    @TableId(value = "user_id", type = IdType.AUTO)
+    @TableField("user_id")
     private String userId;
 
 

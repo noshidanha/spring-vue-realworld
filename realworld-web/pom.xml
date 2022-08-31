@@ -19,6 +19,11 @@
     <version>0.0.1-SNAPSHOT</version>
   </dependency>
   <dependency>
+    <groupId>com.aomentec.realworld</groupId>
+    <artifactId>realworld-util</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </dependency>
+  <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-actuator</artifactId>
   </dependency>
@@ -39,6 +44,11 @@
     <groupId>org.springframework.security</groupId>
     <artifactId>spring-security-test</artifactId>
     <scope>test</scope>
+  </dependency>
+  <dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-api</artifactId>
+    <version>${jjwt.version}</version>
   </dependency>
 </dependencies>
 

@@ -10,7 +10,3 @@ spring:
       data-locations: classpath:db/*
       platform: mysql
       mode: always
-
-mybatis:
-  mapper-locations: classpath:mapper/*Mapper.xml
-  type-aliases-package: com.aomentec.realworld.core.entity

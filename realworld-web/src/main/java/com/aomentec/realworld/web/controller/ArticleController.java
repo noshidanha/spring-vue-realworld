@@ -1,7 +1,7 @@
-package com.aomentec.realworld.controller;
+package com.aomentec.realworld.core.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
@@ -11,8 +11,8 @@ import org.springframework.stereotype.Controller;
  * @author Noel Saldanha
  * @since 2022-08-29
  */
-@Controller
-@RequestMapping("/realworld/article")
+@RestController
+@RequestMapping("/core/article")
 public class ArticleController {
 
 }

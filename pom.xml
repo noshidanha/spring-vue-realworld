@@ -26,7 +26,8 @@
     <maven.frontend.version>1.12.1</maven.frontend.version>
     <node.version>v16.14.2</node.version>
     <mybatis.plus.boot.starter.version>3.5.2</mybatis.plus.boot.starter.version>
-    <h2.version>2.1.214</h2.version>
+    <lombok.version>1.18.24</lombok.version>
+    <jjwt.version>0.11.5</jjwt.version>
   </properties>
 
   <modules>

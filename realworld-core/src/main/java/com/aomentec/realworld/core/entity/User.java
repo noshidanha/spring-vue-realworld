@@ -29,7 +29,7 @@ public class User implements Serializable {
     @TableField("username")
     private String username;
 
-    @TableField("`password`")
+    @TableField("password")
     private String password;
 
     @TableField("email")

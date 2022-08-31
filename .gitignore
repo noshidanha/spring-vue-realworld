@@ -40,3 +40,5 @@ public/
 
 ### Project specific ###
 opt/
+realworld-core/src/test/
+doc/Conduit.postman_collection.json

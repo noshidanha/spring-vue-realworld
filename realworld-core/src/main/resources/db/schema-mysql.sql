@@ -20,8 +20,7 @@ CREATE TABLE IF NOT EXISTS `article` (
 
 CREATE TABLE IF NOT EXISTS `article_favorite` (
   article_id VARCHAR(255) NOT NULL,
-  user_id VARCHAR(255) NOT NULL,
-  PRIMARY KEY(article_id, user_id)
+  user_id VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS `follow` (
