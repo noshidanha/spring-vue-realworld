@@ -1,3 +1,10 @@
+spring:
+  jackson:
+    serialization:
+      wrap-root-value: true
+    deserialization:
+      unwrap-root-value: true
+
 server:
   port: 8081
 
@@ -13,3 +20,4 @@ management:
 jwt:
   secret: nRvyYC4soFxBdZ-F-5Nnzz5USXstR1YylsTd-mA0aKtI9HUlriGrtkf-TiuDapkLiUCogO3JOK7kwZisrHp6wA
   sessionTime: 86400
+  issuer: realworld

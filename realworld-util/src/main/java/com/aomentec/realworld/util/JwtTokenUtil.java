@@ -1,6 +1,7 @@
 package com.aomentec.realworld.util;
 
 import java.util.Base64;
+import java.util.Date;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -20,6 +21,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtTokenUtil {
 
+  private SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS512;
+  
   // Token and encoded base64Secret
   public Claims parseJwt(String token, SecretKey key) {
 
@@ -36,12 +39,27 @@ public class JwtTokenUtil {
   }
 
   public SecretKey createKey(String secret) {
-    SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS512;
     return new SecretKeySpec(secret.getBytes(), signatureAlgorithm.getJcaName());
   }
 
-  public String createJwt(String username, String issuer, String audience) {
-    throw new UnsupportedOperationException("createJwt not implemented"); 
+  public String createJwt(String subject, String issuer, String audience, String secret, long TTLMillis) {
+    long nowMillis = System.currentTimeMillis();
+    Date now = new Date(nowMillis);
+    SecretKey secretKey = createKey(secret);
+
+    JwtBuilder builder = Jwts.builder().setHeaderParam("typ", "JWT")
+            .setSubject(subject)
+            .setIssuer(issuer)
+            .setAudience(audience)
+            .signWith(secretKey);
+
+    if (TTLMillis > 0) {
+      long expMillis = nowMillis + TTLMillis;
+      Date exp = new Date(expMillis);
+      builder.setExpiration(exp).setNotBefore(now);
+    }
+
+    return builder.compact();
   }
 
   public String getToken(String authHeader) {

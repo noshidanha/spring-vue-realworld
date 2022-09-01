@@ -1,5 +1,7 @@
 package com.aomentec.realworld.web.config.security;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Collections;
 
 import javax.annotation.PostConstruct;
@@ -16,6 +18,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 /**
  * @author : noelsaldanha
@@ -37,11 +40,24 @@ public class JwtTokenProvider {
   @Value("${jwt.sessionTime}")
   int sessionTime;
 
+  @Value("${jwt.issuer}")
+  String issuer;
+
+  private String baseUri;
   private SecretKey secretKey;
 
   @PostConstruct
   protected void init() {
+    try {
+      this.baseUri = InetAddress.getLocalHost().getHostAddress();
+    } catch (UnknownHostException uhe) {
+      this.baseUri = "www.realworld.com";
+    }
     this.secretKey = jwtTokenUtil.createKey(this.secret);
+  }
+
+  public String createToken(String subject) {
+    return jwtTokenUtil.createJwt(subject, this.issuer, this.baseUri, this.secret, this.sessionTime * 1000);
   }
 
   public String resolveToken(HttpServletRequest request) {

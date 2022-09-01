@@ -12,6 +12,8 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -19,7 +21,12 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfig {
 
   @Autowired
-  private JwtTokenProvider jwtTokenProvider;
+  public JwtTokenProvider jwtTokenProvider;
+
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
 
   @Bean
   protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -39,8 +46,15 @@ public class WebSecurityConfig {
       .permitAll()
       .antMatchers("/actuator/*")
       .permitAll()
+      .antMatchers(HttpMethod.GET, "/api/articles/feed")
+      .permitAll()
+      .antMatchers(HttpMethod.POST, "/api/users", "/api/users/login")
+      .permitAll()
+      .antMatchers(HttpMethod.GET, "/api/articles/**", "/api/profiles/**", "/api/tags")
+      .permitAll()
       .anyRequest()
-      .authenticated();
+      // .authenticated();
+      .permitAll();
 
     http.apply(new JwtTokenFilterConfigurer(jwtTokenProvider));
 
