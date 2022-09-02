@@ -19,11 +19,13 @@ CREATE TABLE IF NOT EXISTS `article` (
 );
 
 CREATE TABLE IF NOT EXISTS `article_favorite` (
+  id VARCHAR(255) PRIMARY KEY,
   article_id VARCHAR(255) NOT NULL,
   user_id VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS `follow` (
+  id VARCHAR(255) PRIMARY KEY,
   user_id VARCHAR(255) NOT NULL,
   follow_id VARCHAR(255) NOT NULL
 );
@@ -34,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
 );
 
 CREATE TABLE IF NOT EXISTS `article_tag` (
+  id VARCHAR(255) PRIMARY KEY,
   article_id VARCHAR(255) NOT NULL,
   tag_id VARCHAR(255) NOT NULL
 );
